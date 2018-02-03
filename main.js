@@ -2,16 +2,18 @@ var app = new Vue({
     el: '#app',
     data: {
       items: [
-        { message: 'Foo' },
-        { message: 'Bar' }
       ]
     }
   });
-app.items[0].message = "NUUU";
+
+function StringSort(str1,str2){
+    return str1 < str2 ? -1 : str1 > str2;
+}
 
 axios.get('https://api.radio-browser.info/json/servers')
 .then(function (response) {
-    console.log(response);
+    app.items = response.data;
+    app.items.sort(function(a,b){return StringSort(a.name,b.name);});
 })
 .catch(function (error) {
     console.log(error);
