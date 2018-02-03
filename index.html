@@ -7,7 +7,11 @@
         <h1>RadioBrowser Status Page</h1>
         <div id="app">
             <ul id="example-1">
-                <li v-for="item in items">{{ item.name }} ({{item.ip}})</li>
+                <li v-for="item in items">
+                    <span>{{ item.name }} {{ item.status }}</span>
+                    <span v-if="item.time">{{item.time}} secs</span>
+                    <span v-if="item.err">{{item.err}}</span>
+                </li>
             </ul>
         </div>
         
