@@ -10,7 +10,7 @@
                 <li v-for="item in items">
                     <span>{{ item.name }} {{ item.status }}</span>
                     <span v-if="item.time">{{item.time}} secs</span>
-                    <span v-if="item.err">{{item.err}}</span>
+                    <span v-if="item.err"><font color="red">{{item.err.message}}</font></span>
                 </li>
             </ul>
         </div>

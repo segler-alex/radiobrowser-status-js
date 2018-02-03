@@ -35,6 +35,7 @@ axios.get('https://api.radio-browser.info/json/servers')
         }).catch(function(err){
             item.status = 'NOK';
             item.time = (Date.now() - item.started)/1000;
+            item.err = err;
         });
     });
     return Promise.all(list);
